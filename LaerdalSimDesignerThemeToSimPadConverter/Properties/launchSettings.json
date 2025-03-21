@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "LaerdalSimDesignerThemeToSimPadConverter": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Users\\Jan\\Laerdal Simulation\\Themes\\Adult\\Circulation\\Cardiac Arrest.thx\""
+    }
+  }
+}
