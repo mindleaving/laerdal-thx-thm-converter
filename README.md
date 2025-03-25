@@ -1,7 +1,7 @@
 # Convert Laerdal SimDesigner Themes to Simpad Themes
 
 ## Disclaimer
-This is project is NOT approved, supported, endorsed or in any way related by Laerdal. This is a hobby project. Please report any errors or issues related to this tool to me (preferably here on GitHub).
+This is project is NOT approved, supported or endorsed by Laerdal. This is a hobby project. Please report any errors or issues related to this tool to me (preferably here on GitHub).
 
 ## Prerequisites
 You must have .NET 8 runtime installed.
