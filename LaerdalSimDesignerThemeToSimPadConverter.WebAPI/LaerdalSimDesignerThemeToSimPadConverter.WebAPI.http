@@ -1,0 +1,7 @@
+@LaerdalSimDesignerThemeToSimPadConverter.WebAPI_HostAddress = http://localhost:5041
+
+POST {{LaerdalSimDesignerThemeToSimPadConverter.WebAPI_HostAddress}}/api/convert
+Accept: application/octet-stream
+
+
+###

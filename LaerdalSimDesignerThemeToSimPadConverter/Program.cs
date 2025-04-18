@@ -31,4 +31,4 @@ if (outputFilePath == inputFilePath)
 var thxFileReader = new ThxFileReader();
 var thmFileWriter = new ThmFileWriter();
 var converter = new ThxToThmConverter(thxFileReader, thmFileWriter);
-converter.Convert(inputFilePath, outputFilePath);
+converter.ConvertAndWrite(inputFilePath, outputFilePath);

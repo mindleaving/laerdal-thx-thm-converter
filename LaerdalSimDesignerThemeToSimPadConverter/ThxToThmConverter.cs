@@ -24,7 +24,7 @@ public class ThxToThmConverter
         vocalSoundParameterConverter = new VocalSoundParameterConverter();
     }
 
-    public void Convert(
+    public void ConvertAndWrite(
         string thxFilePath,
         string thmFilePath)
     {
@@ -32,10 +32,26 @@ public class ThxToThmConverter
         thmFileWriter.Write(thmFilePath, theme);
     }
 
-    private Theme Convert(
+    public Theme Convert(
         string thxFilePath)
     {
         var thxFile = thxFileReader.Read(thxFilePath);
+        return Convert(thxFile);
+    }
+
+    public Stream ConvertAndWrite(
+        Stream inputStream,
+        string name)
+    {
+        var theme = Convert(inputStream, name);
+        return thmFileWriter.Write(theme);
+    }
+
+    public Theme Convert(
+        Stream inputStream,
+        string name)
+    {
+        var thxFile = thxFileReader.Read(inputStream, name);
         return Convert(thxFile);
     }
 
