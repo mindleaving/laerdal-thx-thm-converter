@@ -14,7 +14,7 @@ I provide an online conversion service. No guarantees made. See terms and condit
 
 Converts .thx file to .thm by drag-n-drop. 
 
-[<h3>Go to online conversion service</h3>](https://laerdal.janscholtyssek.dk)
+[**Go to online conversion service**](https://laerdal.janscholtyssek.dk)
 
 
 ## Prerequisites
