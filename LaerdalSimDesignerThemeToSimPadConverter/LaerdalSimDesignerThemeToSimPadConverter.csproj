@@ -5,6 +5,15 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Laerdal Theme Converter</Title>
+    <Authors>Jan Scholtyssek</Authors>
+    <Description>Convert Laerdal SimDesigner Themes (.thx) to SimPad Themes (.thm)</Description>
+    <PackageProjectUrl>https://github.com/mindleaving/laerdal-thx-thm-converter</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/mindleaving/laerdal-thx-thm-converter</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Version>2025.04.18</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -14,5 +23,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <NoWarn>1701;1702;8618</NoWarn>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
