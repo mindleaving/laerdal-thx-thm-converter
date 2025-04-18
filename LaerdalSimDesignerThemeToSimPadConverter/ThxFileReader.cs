@@ -16,14 +16,23 @@ public class ThxFileReader
         string thxFilePath)
     {
         using var fileStream = File.OpenRead(thxFilePath);
-        using var zipArchive = new ZipArchive(fileStream, ZipArchiveMode.Read);
+        var name = Path.GetFileNameWithoutExtension(thxFilePath);
+        return Read(fileStream, name);
+    }
+
+    public ThxFile Read(
+        Stream inputStream,
+        string name = "SimPadTheme")
+    {
+        using var zipArchive = new ZipArchive(inputStream, ZipArchiveMode.Read);
         using var scenarioFile = zipArchive.GetEntry(ScenarioFileName)!.Open();
         var scenario = Read<Scenario>(scenarioFile);
         using var scenarioInfoFile = zipArchive.GetEntry(ScenarioInfoFileName)!.Open();
         var scenarioInfo = Read<ScenarioInfo>(scenarioInfoFile);
         // TODO: Gather other information from patient and sound preset file
-        return new(Path.GetFileNameWithoutExtension(thxFilePath), scenario, scenarioInfo);
+        return new(name, scenario, scenarioInfo);
     }
+
     private T Read<T>(
         Stream stream)
     {
