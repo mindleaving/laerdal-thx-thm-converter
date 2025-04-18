@@ -112,7 +112,7 @@ public class ThxToThmConverter
                         continue;
                     if(!parameterConverter.CanConvert(response))
                         continue;
-                    Parameter parameter;
+                    Parameter? parameter;
                     if(response.SetType != "SET_ABSOLUTE")
                     {
                         if (!TryApplyRelativeParameterChange(response, parameterConverter, states, out parameter)) 
@@ -143,11 +143,20 @@ public class ThxToThmConverter
                     break; // SimPad seems to only supports one sound per theme state
                 }
             }
+
+            var distinctParameters = parameters.DistinctBy(x => x.Name).ToList();
+            if(distinctParameters.Any(x => x.Name == "Rhythm") && distinctParameters.All(x => x.Name != "PEA"))
+                distinctParameters.Add(new("PEA", "false")); // Required for showing rhythm pattern in SimPad Theme Editor
             var state = new State(frame.DisplayName)
             {
-                Parameters = parameters.DistinctBy(x => x.Name).ToList()
+                Parameters = distinctParameters
             };
             states.Add(state);
+        }
+
+        if (states.Count > 0)
+        {
+            states[0].Parameters.Add(new Parameter("StartState", "true"));
         }
 
         return states;

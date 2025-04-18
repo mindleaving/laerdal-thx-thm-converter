@@ -18,12 +18,12 @@ public class EnumParameterConverter : ParameterConverter
     public override bool CanConvert(
         SingleValueResponse response)
     {
-        return enumMap.ContainsKey(response.Id);
+        return enumMap.ContainsKey(response.NewValue);
     }
 
     public override Parameter Convert(
         SingleValueResponse response)
     {
-        return new Parameter(SimPadParameterName, enumMap[response.Id]);
+        return new Parameter(SimPadParameterName, enumMap[response.NewValue]);
     }
 }
