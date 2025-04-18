@@ -13,10 +13,10 @@ const baseStyle: CSSProperties = {
   padding: '20px',
   borderWidth: 2,
   borderRadius: 2,
-  borderColor: '#eeeeee',
+  borderColor: '#ccc',
   borderStyle: 'dashed',
   backgroundColor: '#fafafa',
-  color: '#bdbdbd',
+  color: '#888',
   outline: 'none',
   transition: 'border .24s ease-in-out',
   cursor: 'pointer'
@@ -42,7 +42,9 @@ export const FileUpload = (props: FileUploadProps) => {
         isDragAccept,
         isDragReject
     } = useDropzone({
-        onDrop: props.onDrop
+        onDrop: props.onDrop,
+        accept: { 'SimDesigner Theme': ['.thx'] },
+        multiple: false
     });
 
   const style = useMemo(() => ({
